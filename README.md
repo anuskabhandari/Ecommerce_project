@@ -53,3 +53,19 @@ python manage.py runserver
 ## Visit:
 http://127.0.0.1:8000/
 Admin: http://127.0.0.1:8000/admin/
+
+## Future Enhancements
+
+--> Payment gateway integration (Stripe / Khalti / eSewa)
+
+--> Product categories & filtering
+
+--> Search functionality
+
+--> Order history dashboard
+
+--> REST API integration
+
+--> Deployment using Docker
+
+--> Cloud hosting (Render / PythonAnywhere / AWS)
