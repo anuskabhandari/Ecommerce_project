@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>    
+    <h1>Products</h1>
+
+    <div class="products-container">
+    {% for product in products %}
+        <div class="product-card">
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.description }}</p>
+            <p class="price">Rs {{ product.price }}</p>
+            <p class="category">Category: {{ product.category }}</p>
+
+            {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            {% endif %}
+        </div>
+    {% empty %}
+        <p>No products found.</p>
+    {% endfor %}
+    </div>
+
+    <h2>Filter by Category</h2>
+
+    <form method="GET">
+        <select name="category">
+            <option value="">All</option>
+            <option value="Shoes">Shoes</option>
+            <option value="Clothes">Clothes</option>
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+
+</body>
+</html>
