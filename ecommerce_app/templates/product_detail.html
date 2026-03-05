@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.name }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    {% include 'navbar.html' %}
+
+    <div class="product-detail-container" style="text-align:center; margin:40px auto; max-width:600px;">
+        <h1>{{ product.name }}</h1>
+
+        {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" style="width:100%; max-width:400px; border-radius:10px; margin-bottom:20px;">
+        {% else %}
+            <img src="{% static 'images/no-image.png' %}" alt="No Image" style="width:100%; max-width:400px; border-radius:10px; margin-bottom:20px;">
+        {% endif %}
+
+        <p>{{ product.description }}</p>
+        <p class="price">Rs {{ product.price }}</p>
+        <p class="category">Category: {{ product.category }}</p>
+
+        <!-- Buttons -->
+        <a href="{% url 'add_to_cart' product.id %}" class="product-card-btn" id="addCartBtn">Add to Cart</a>
+        <a href="{% url 'home' %}" class="product-card-btn back-btn">Back to Products</a>
+
+        <!-- Added to Cart Message -->
+        <div id="added-msg" style="display:none; color:#28a745; font-weight:bold; margin-top:15px;">
+            ✅ Product added to cart!
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align:center; padding:20px; margin-top:40px; background:#182848; color:white;">
+        &copy; 2026 E-Commerce Project. All Rights Reserved.
+    </footer>
+
+    <!-- JS for interactivity -->
+    <script>
+        const addBtn = document.getElementById('addCartBtn');
+        const msg = document.getElementById('added-msg');
+
+        addBtn.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent page reload
+            const url = this.href;
+
+            // AJAX request to add to cart (keeps original functionality)
+            fetch(url)
+                .then(response => {
+                    msg.style.display = 'block';
+                    setTimeout(() => { msg.style.display = 'none'; }, 2000);
+                })
+                .catch(err => console.error(err));
+        });
+    </script>
+
+</body>
+</html>

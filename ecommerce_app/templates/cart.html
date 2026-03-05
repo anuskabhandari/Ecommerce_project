@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <!-- ===== Navbar ===== -->
+    {% include 'navbar.html' %}
+
+    <main style="text-align:center; margin:40px auto; max-width:1200px;">
+        <h1>Your Cart</h1>
+
+        {% if products %}
+        <div class="products-container">
+            {% for product in products %}
+            <div class="product-card">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                {% else %}
+                    <img src="{% static 'images/no-image.png' %}" alt="No Image">
+                {% endif %}
+
+                <h2>{{ product.name }}</h2>
+                <p class="price">Price: Rs {{ product.price }}</p>
+                <p class="category">Category: {{ product.category }}</p>
+
+                <!-- Buttons -->
+                <a href="{% url 'product_detail' product.id %}" class="product-card-btn">View Details</a>
+                <a href="{% url 'remove_from_cart' product.id %}" class="remove-btn">Remove</a>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Total -->
+        <p style="text-align:center; font-weight:bold; margin-top:20px;">
+            Total: Rs {{ total }}
+        </p>
+
+        <!-- Checkout Button -->
+        <div style="text-align:center; margin-top:20px;">
+            <a href="#" class="checkout-btn">Checkout</a>
+        </div>
+
+        {% else %}
+        <p style="text-align:center; margin-top:20px;">Your cart is empty.</p>
+        {% endif %}
+
+        <!-- Back to Products -->
+        <div style="text-align:center; margin-top:20px;">
+            <a href="{% url 'home' %}" class="product-card-btn back-btn">Back to Products</a>
+        </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer style="text-align:center; padding:20px; margin-top:40px; background:#182848; color:white;">
+        &copy; 2026 E-Commerce Project. All Rights Reserved.
+    </footer>
+
+</body>
+</html>

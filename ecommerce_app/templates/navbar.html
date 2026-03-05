@@ -1,0 +1,13 @@
+<!-- navbar.html -->
+<nav style="text-align:center; background: linear-gradient(90deg, #2c305f, #2c305f); padding:15px;">
+    <a href="{% url 'home' %}" style="color:white; margin:0 15px; font-weight:bold;">Home</a>
+    
+    {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}" style="color:white; margin:0 15px; font-weight:bold;">Logout</a>
+    {% else %}
+        <a href="{% url 'login' %}" style="color:white; margin:0 15px; font-weight:bold;">Login</a>
+        <a href="{% url 'register' %}" style="color:white; margin:0 15px; font-weight:bold;">Register</a>
+    {% endif %}
+    
+    <a href="{% url 'cart' %}" style="color:white; margin:0 15px; font-weight:bold;">Cart</a>
+</nav>

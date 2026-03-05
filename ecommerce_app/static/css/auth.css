@@ -1,0 +1,83 @@
+/* ===== General Body ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url("../images/shopping-bg.jpg") no-repeat center center/cover;
+    margin: 0;
+    padding: 0;
+}
+/* ===== Form Container ===== */
+.form-container {
+    width: 350px;
+    max-width: 90%;
+    margin: 60px auto;
+   background: rgba(255, 255, 255, 0.15);   /* transparent */
+    padding: 35px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* ===== Form Title ===== */
+.form-container h2 {
+    margin-bottom: 20px;
+    color: #182848;
+    font-weight: 600;
+}
+
+/* ===== Input Fields ===== */
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"] {
+    width: 100%;
+    padding: 11px 14px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Input Focus */
+.form-container input:focus {
+    border-color: #2563eb;
+    outline: none;
+    box-shadow: 0 0 6px rgba(37, 99, 235, 0.4);
+}
+
+/* ===== Buttons ===== */
+.form-container button {
+    width: 100%;
+    padding: 11px;
+    margin-top: 15px;
+    background: #2563eb;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+/* Button Hover */
+.form-container button:hover {
+    background: #182848;
+}
+
+/* ===== Links below form ===== */
+.form-container p {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.form-container p a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.form-container p a:hover {
+    color: #182848;
+}

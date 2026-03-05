@@ -1,49 +1,220 @@
-   
-    body {
-    font-family: Arial, sans-serif;
-    background-color: #4d6eba;
+/* ===== General Styles ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+/* ===== Background Image ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url("../images/shopping-bg.jpg") no-repeat center center/cover;
+    min-height: 100vh;
+    color: #333;
+    position: relative;
+}
+
+/* Dark overlay for readability */
+body::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.35);
+    z-index:0;
+}
+
+/* Make content appear above overlay */
+nav,
+.products-container,
+form{
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== Navbar ===== */
+nav {
+    background: linear-gradient(90deg, #4b6cb7, #182848);
+    padding: 16px 0;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 18px;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+    color: #ffd700;
+}
+
+/* ===== Products Grid ===== */
 .products-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
     justify-content: center;
+    gap: 25px;
+    padding: 35px 20px;
 }
 
+/* ===== Product Card ===== */
 .product-card {
-    background: white;
-    width: 250px;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: 0.3s;
+    background: rgba(255, 255, 255, 0.25);  /* semi-transparent */
+    width: 280px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.15);
 }
 
 .product-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 8px;
 }
 
-.product-card h3 {
-    margin: 10px 0 5px;
+/* Product Text */
+.product-card h2 {
+    font-size: 19px;
+    margin: 15px 0 5px;
+    padding: 0 15px;
+    color: #222;
+}
+
+.product-card p {
+    padding: 0 15px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
 }
 
 .product-card .price {
-    color: green;
-    font-weight: bold;
-    margin: 5px 0;
+    color: #16a34a;
+    font-weight: 700;
+    margin: 10px 0;
 }
 
 .product-card .category {
-    font-size: 14px;
-    color: gray;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 10px;
 }
 
+/* ===== Product Buttons ===== */
+.product-card a {
+    display: inline-block;
+    margin: 6px 8px 15px;
+    padding: 10px 18px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: #fff;
+    cursor: pointer;  /* added for proper hover */
+    transition: all 0.25s ease;
+}
+
+.product-card a:hover {
+    background: #1e4fd6;
+    transform: translateY(-2px);
+}
+
+/* ===== Filter Form ===== */
+form {
+    text-align: center;
+    margin: 30px 0 10px;
+}
+
+form select {
+    padding: 9px 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+form button {
+    padding: 9px 20px;
+    border-radius: 6px;
+    border: none;
+    background:#2563eb;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #1e40af;
+}
+
+/* ===== Checkout Button ===== */
+.checkout-btn {
+    padding: 12px 22px;
+    background: #ff7a00;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.checkout-btn:hover {
+    background: #e66a00;
+}
+
+/* ===== Remove Button ===== */
+.remove-btn {
+    background: #ff4d4d;
+    cursor: pointer;  /* added */
+}
+
+.remove-btn:hover {
+    background: #e63939;
+    transform: translateY(-2px);
+}
+
+/* ===== Product Detail Buttons ===== */
+.product-card-btn {
+    display: inline-block;
+    margin: 6px 8px 15px;
+    padding: 10px 18px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 6px;
+    background: #2563eb;  /* Default: blue */
+    color: #fff;
+    cursor: pointer;  /* added */
+    transition: all 0.25s ease;
+}
+
+.product-card-btn:hover {
+    background: #1e4fd6;  /* Darker blue on hover */
+    transform: translateY(-2px);
+}
+
+/* Back button different color */
+.product-card-btn.back-btn {
+    background: #6c757d;  /* Gray */
+}
+
+.product-card-btn.back-btn:hover {
+    background: #5a6268;  /* Darker gray */
+    transform: translateY(-2px);
+}
