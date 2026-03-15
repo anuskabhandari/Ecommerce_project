@@ -45,7 +45,7 @@ ecommerce_project/
 └── db.sqlite3
 
 ## Screenshots
-https://drive.google.com/drive/folders/1o4gbKWpBSczVCANv7ZWC7oCA36PlLYkS
+https://drive.google.com/drive/folders/1o4gbKWpBSczVCANv7ZWC7oCA36PlLYkS?usp=drive_link
 
 ## Setup Instructions
 pip install django
