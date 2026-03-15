@@ -44,6 +44,9 @@ ecommerce_project/
 ├── manage.py
 └── db.sqlite3
 
+## Screenshots
+https://drive.google.com/drive/folders/1o4gbKWpBSczVCANv7ZWC7oCA36PlLYkS
+
 ## Setup Instructions
 pip install django
 python manage.py makemigrations
